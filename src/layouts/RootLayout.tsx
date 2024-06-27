@@ -1,15 +1,13 @@
 import { Outlet } from "react-router-dom";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 export default function RootLayout() {
   return (
     <div>
-      <nav>
-        <h1>React Redux Shop</h1>
-      </nav>
+      <Nav />
       <Outlet />
-      <footer>
-        <p>Footer</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
