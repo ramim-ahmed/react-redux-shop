@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# Typescript React Redux Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Github Repository:
 
-Currently, two official plugins are available:
+- [source_code](https://github.com/ramim-ahmed/react-redux-shop)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live site:
 
-## Expanding the ESLint configuration
+- [Live_Preview](https://react-redux-shop-weld.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Features ✨:
 
-- Configure the top-level `parserOptions` property like this:
+<ul>
+    <li>all data fetching using rtk-query to really super fast and caching</li>
+    <li>Pagination to optimized way data showing</li>
+    <li>Product Details showing dynamically</li>
+    <li>Edit Product and add review and remove based on product</li>
+</ul>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Tech Uses 🔥:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [Typescript](https://www.typescriptlang.org/) : A super set of javascript help to build scalable, maintainable, enterprise application.
+- [React](https://react.dev/) : For building user interface.
+- [React Router Dom](https://reactrouter.com/en/main): that allows client side routing without page refresh.
+- [Redux-Toolkit](https://redux-toolkit.js.org/): A opinionated, batteries-included toolset for efficient Redux development and state management
+- [TailwindCSS](https://tailwindcss.com/) : A css utiliy classes most popular framework.
+- [Ant-Design](https://ant.design/) : Help designers/developers building beautiful products more flexible and working with happiness
+- [React-Hot-Toast](https://react-hot-toast.com/) : that allows any action in
+- [ReactIcons](https://react-icons.github.io/react-icons/) : that help us use easy way icons.
