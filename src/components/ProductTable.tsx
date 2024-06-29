@@ -50,7 +50,7 @@ const columns: TableColumnsType<TProduct> = [
     title: "Action",
     key: "action",
     render: (_, record: TProduct) => (
-      <div className="space-x-3">
+      <div className="space-x-2 flex">
         <Link to={`/product-details/${record.id}`}>
           <Button type="primary">View Details</Button>
         </Link>
@@ -72,7 +72,6 @@ export default function ProductTable({ products }: TProductTableProps) {
   });
 
   const handleTableChange = (pagination: TablePaginationConfig) => {
-    console.log(pagination);
     setPagination(pagination);
   };
 

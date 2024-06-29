@@ -1,26 +1,8 @@
-import { Outlet } from "react-router-dom";
-import type { MenuProps } from "antd";
+import { Link, Outlet } from "react-router-dom";
 import { Layout, Menu, theme } from "antd";
 import { useState } from "react";
 import Footer from "../components/Footer";
-
 const { Header, Content, Sider } = Layout;
-
-type MenuItem = Required<MenuProps>["items"][number];
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  children?: MenuItem[]
-): MenuItem {
-  return {
-    key,
-    children,
-    label,
-  } as MenuItem;
-}
-
-const items: MenuItem[] = [getItem("All Product Lists", "1")];
 export default function RootLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -35,12 +17,11 @@ export default function RootLayout() {
           onCollapse={(value) => setCollapsed(value)}
         >
           <div className="demo-logo-vertical" />
-          <Menu
-            theme="dark"
-            defaultSelectedKeys={["1"]}
-            mode="inline"
-            items={items}
-          />
+          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+            <Menu.Item key="1">
+              <Link to="/">All Products List</Link>
+            </Menu.Item>
+          </Menu>
         </Sider>
         <Layout>
           <Header style={{ padding: 0, background: colorBgContainer }} />
