@@ -1,9 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useFetchSingleProductQuery } from "../app/features/product/productApi";
-import { FaRegStar, FaStar } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
-import { Button, Spin } from "antd";
-import Rating from "react-rating";
+import { Button, Spin, Rate } from "antd";
 import { useState } from "react";
 import { MdKeyboardBackspace } from "react-icons/md";
 
@@ -88,12 +86,7 @@ function ProductDetails() {
               {category}
             </p>
             <h1 className="text-xl font-medium">{title}</h1>
-            <Rating
-              initialRating={rating}
-              readonly
-              fullSymbol={<FaStar className="w-6 h-6 text-orange-400" />}
-              emptySymbol={<FaRegStar className="w-6 h-6 text-orange-400" />}
-            />
+            <Rate allowHalf defaultValue={rating} />
             <p>Price: $ {price}</p>
             <p>Brand: {brand || "Unknown"}</p>
             <p>Stock Available: {stock} pieces</p>
@@ -143,14 +136,7 @@ function ProductDetails() {
                 <h2 className="font-medium">{review.reviewerName}</h2>
               </div>
               <div className="mt-2">
-                <Rating
-                  initialRating={review.rating}
-                  readonly
-                  fullSymbol={<FaStar className="w-4 h-4 text-orange-400" />}
-                  emptySymbol={
-                    <FaRegStar className="w-4 h-4 text-orange-400" />
-                  }
-                />
+                <Rate allowHalf defaultValue={review.rating} />
               </div>
               <div>
                 <p>{review.comment}</p>
