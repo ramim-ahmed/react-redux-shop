@@ -20,7 +20,7 @@ type TDimension = {
 type genericArray<T> = Array<T>;
 
 export type TProduct = {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   category: string;
@@ -54,3 +54,11 @@ export type TProductApiResponse = {
 export type TProductTableProps = {
   products: TProduct[];
 };
+
+type TCategory = {
+  slug: string;
+  name: string;
+  url: string;
+};
+
+export type TCategories = genericArray<TCategory>;

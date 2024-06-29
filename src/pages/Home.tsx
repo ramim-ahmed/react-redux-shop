@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import { useFetchProductsQuery } from "../app/features/product/productApi";
 import ProductTable from "../components/ProductTable";
 
@@ -7,7 +8,7 @@ export default function Home() {
   // decide what to render
   let content;
   if (isLoading) {
-    content = <h1>loading.....</h1>;
+    content = <Spin />;
   }
   if (!isLoading && isError) {
     content = <h1>Internal sever Error!!</h1>;
@@ -17,13 +18,13 @@ export default function Home() {
   }
   if (!isLoading && !isError && allProducts.length > 0) {
     return (
-      <div className="max-w-5xl mx-auto pt-10 px-3 min-h-screen">
-        <ProductTable products={allProducts} />
+      <div className="">
+        <div className="mt-4">
+          <ProductTable products={allProducts} />
+        </div>
       </div>
     );
   } else {
-    return (
-      <div className="max-w-5xl pt-10 mx-auto px-3 min-h-screen">{content}</div>
-    );
+    return <div className="flex justify-center pt-20">{content}</div>;
   }
 }

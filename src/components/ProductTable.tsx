@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Button, Table } from "antd";
 import type { TableColumnsType, TableProps } from "antd";
 import { TProduct, TProductTableProps } from "../types";
-
+import type { TablePaginationConfig } from "antd/lib/table";
+import { Link } from "react-router-dom";
 type TableRowSelection<T> = TableProps<T>["rowSelection"];
 
 const columns: TableColumnsType<TProduct> = [
@@ -47,17 +48,37 @@ const columns: TableColumnsType<TProduct> = [
   },
   {
     title: "Action",
-    render: () => <Button type="primary">View Details</Button>,
+    key: "action",
+    render: (_, record: TProduct) => (
+      <div className="space-x-3">
+        <Link to={`/product-details/${record.id}`}>
+          <Button type="primary">View Details</Button>
+        </Link>
+        <Link to={`/edit-product/${record.id}`}>
+          <Button type="primary">Edit Product</Button>
+        </Link>
+      </div>
+    ),
   },
 ];
 
 export default function ProductTable({ products }: TProductTableProps) {
   const data = products;
-  console.log(data);
+  const [pagination, setPagination] = useState<TablePaginationConfig>({
+    current: 1,
+    pageSize: 5,
+    pageSizeOptions: ["5", "10", "20", "30", "40"],
+    showSizeChanger: true,
+  });
+
+  const handleTableChange = (pagination: TablePaginationConfig) => {
+    console.log(pagination);
+    setPagination(pagination);
+  };
+
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
-    console.log("selectedRowKeys changed: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
   };
 
@@ -100,6 +121,12 @@ export default function ProductTable({ products }: TProductTableProps) {
   };
 
   return (
-    <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+    <Table
+      rowSelection={rowSelection}
+      columns={columns}
+      dataSource={data}
+      pagination={pagination}
+      onChange={handleTableChange}
+    />
   );
 }
